@@ -6,17 +6,20 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
-@Entity
 @Data
+@Entity
+@NoArgsConstructor
 public class Author {
 	@Id
-	@GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "increment")
 	private Long ID;
 	
 	@NonNull
@@ -25,9 +28,6 @@ public class Author {
 	@OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
 	private List<Book> books = new ArrayList<>();
 	
-	public Author() {
-	}
-
 	public Author(@NonNull String name) {
 		this.name = name;
 	}

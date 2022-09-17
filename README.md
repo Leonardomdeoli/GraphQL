@@ -1,3 +1,18 @@
-# GraphQL
+**Teste da aplicação**
 
-Exemplo de projeto com end-point em graphQL
+[](http://localhost:8080/graphiql)
+
+*Exemplo de consulta*
+`query {
+   authors{
+    name
+    books{
+      title
+    }
+   }
+  allBooks{
+    title
+  }
+}`
+
+![](https://gitlab.com/leonardomdeoli/graphqlteste/-/blob/main/src/main/resources/img/info.png)
